@@ -146,6 +146,8 @@ const Example = () => {
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing
+        enableStickyHeader
+        muiTableContainerProps={{ sx: { maxHeight:'600px' } }}
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (
