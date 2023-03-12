@@ -147,7 +147,7 @@ const Example = () => {
         enableColumnOrdering
         enableEditing
         enableStickyHeader
-        muiTableContainerProps={{ sx: { maxHeight:'490px' } }}
+        muiTableContainerProps={{  }}
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (

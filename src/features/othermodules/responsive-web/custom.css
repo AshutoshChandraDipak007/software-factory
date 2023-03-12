@@ -64,7 +64,7 @@
 } */
 
 
-.header {
+.body .header {
   background-color:rgb(69, 69, 161);
   padding-top: 15px;
   padding-bottom: 15px;
@@ -76,7 +76,7 @@
   overflow:auto;
 }
 
-.allComp .menu {
+ .allComp .menu {
   float: left;
   width: 20%;
   text-align: center;
@@ -100,19 +100,27 @@
   
 }
 
-.footer {
+.body .footer {
   background-color:rgb(69, 69, 161);
   text-align:center;
   margin-top:7px;
   height: 75px;
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 } 
 
 @media only screen and (max-width: 620px) {
   /* For mobile phones: */
-  .allComp .menu, .allComp .main, .allComp .right {
+ 
+  .allComp .menu, .allComp .main, .allComp .menu a  {
     width: 100%;
   }  
- .allComp .main{
-    height:20vh;
-  } 
+
+  .body .header, .body .footer{
+    width: 100%;
+  }
+
 }
