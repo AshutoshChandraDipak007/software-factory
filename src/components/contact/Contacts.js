@@ -2,6 +2,7 @@ import React from "react";
 import mypic from "../../images/Ashutosh.jpg";
 import './contact.css';
 
+
 export default function Contacts() {
   return (
     <div>     

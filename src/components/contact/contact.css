@@ -1,21 +1,7 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-  }
-  
-  .about-section {
-    padding: 50px;
-    text-align: center;
-    background-color: #474e5d;
-    color: white;
-    width: 50%;   
-  }
-
   .row{
-    width: 30%;
-    margin-left: 35%;
-
-  }  
+    width: 25%;
+    margin-left: 60%;
+   }  
   .row .button {
     border: none;
     outline: 0;
@@ -27,7 +13,11 @@
     cursor: pointer;
     width: 100%;
   }
-  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+
   .button:hover {
     background-color: #555;
   }
