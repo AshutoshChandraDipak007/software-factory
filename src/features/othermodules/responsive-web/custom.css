@@ -1,4 +1,4 @@
-
+/* 
 .header {
     background-color: rgb(238, 234, 218) ;
     padding-top: 15px;
@@ -19,17 +19,17 @@
 
 .allComp .menu a {
     background-color: cornsilk;
-    padding: 8px;
+    padding: 8px 0 8px 0px;
     margin: 7px 0 0 0px;
     display: block;
-    width: 90%;
+    width: 100%;
     color: black;
   }
   
   .allComp .main {
     float: left;
-    margin-left: 1em;
-    width: 77%;
+    width: 78%;
+    margin: 0px 1% .4em 1%;
     padding: 20px 0px 20px 0px;
   
 }
@@ -49,7 +49,7 @@
     text-align:center;
     padding:10px 0px 10px 0px;
     margin-top:7px;
-}
+} */
 
   /* @media only screen and (max-width: 420px) {   
     .menu, .main, .right {
@@ -57,8 +57,62 @@
     }
 } */
 
-@media only screen and (max-width: 420px) {    
-    .menu, .main, .right {
+/* @media only screen and (max-width: 600px) {    
+  .allComp, .menu, .main {
       width: 100%;
     }
+} */
+
+
+.header {
+  background-color:rgb(69, 69, 161);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align:center;
+  width: 100%;
+}
+
+.allComp {
+  overflow:auto;
+}
+
+.allComp .menu {
+  float: left;
+  width: 20%;
+  text-align: center;
+  background-color: darkgray;
+}
+
+.allComp .menu a {
+  background-color: #e5e5e5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 7px;
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+.allComp .main {
+  float: left;
+  width: 78%;
+  margin: 1%;
+  
+}
+
+.footer {
+  background-color:rgb(69, 69, 161);
+  text-align:center;
+  margin-top:7px;
+  height: 75px;
+} 
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .allComp .menu, .allComp .main, .allComp .right {
+    width: 100%;
+  }  
+ .allComp .main{
+    height:20vh;
+  } 
 }
