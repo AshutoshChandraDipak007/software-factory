@@ -63,14 +63,21 @@ Configuration pros for creating ci/cd pipeline on aws.
 
 
 
-<?xml version="1.0" encoding="UTF-8"?>
-<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-<CORSRule>
-    <AllowedOrigin>*</AllowedOrigin>
-    <AllowedMethod>GET</AllowedMethod>
-</CORSRule>
-</CORSConfiguration>
-
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "POST",
+            "GET",
+            "PUT"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ]
+    }
+]
 
 
 
