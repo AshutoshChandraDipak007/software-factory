@@ -6,8 +6,8 @@ import ResponsiveApp from './features/othermodules/responsive-web/ResponsiveApp'
 function App() {
   return (
     <div className="App">
-      {/* <Example></Example> */}
-      <ResponsiveApp></ResponsiveApp>     
+      <Example></Example>
+      {/* <ResponsiveApp></ResponsiveApp>      */}
     </div>
   );
 }
