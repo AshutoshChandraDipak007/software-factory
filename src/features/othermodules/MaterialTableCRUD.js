@@ -170,7 +170,7 @@ const Example = () => {
             onClick={() => setCreateModalOpen(true)}
             variant="contained"
           >
-            Create New Account
+            Create
           </Button>
         )}
       />
