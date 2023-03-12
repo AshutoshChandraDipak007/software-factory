@@ -4,10 +4,6 @@ import "./custom.css";
 export default function ResponsiveApp() {
   return (
     <div className="body" style={{fontFamily:"sans-serif",color:"#aaaaaa"}}>
-
-      <div className="header">
-        <h1>Header</h1>
-      </div>
       <div className="allComp">
             <div className="menu">
               <a href="#">Screen 1</a>
@@ -18,8 +14,7 @@ export default function ResponsiveApp() {
             <div className="main">
               <Example></Example>
             </div> 
-      </div>
-      <div className="footer"><h2>Footer for test</h2></div>
+      </div>     
     </div>
   );
 }
