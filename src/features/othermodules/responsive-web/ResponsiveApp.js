@@ -19,7 +19,7 @@ export default function ResponsiveApp() {
               <Example></Example>
             </div> 
       </div>
-      <div className="footer">Footer for fuck</div>
+      <div className="footer"><h2>Footer for test</h2></div>
     </div>
   );
 }
