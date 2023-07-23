@@ -1,0 +1,32 @@
+.item-name{
+    width: 140px;
+    min-height: 52px;
+    font-size: 13px;
+    text-align: center;
+    color: #F4F4F4;
+    text-transform: none;
+    margin-block-start: initial;
+    cursor: pointer;
+    background-color: #F4F4F4;
+    margin:10px 20px 0px 0px;   
+    padding-top: 5px;
+}
+
+.item-name img{
+ width: 30px;
+ height: 30px;
+ display: inline-block;
+}
+
+.item-name p{
+   padding: 5px;
+}
+
+.on-hover-display-details{
+  padding: 10px;
+}
+
+
+.on-hover-display-details p{
+    margin-top: 0.1vh;
+ }

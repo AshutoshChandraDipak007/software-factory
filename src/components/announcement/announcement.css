@@ -1,0 +1,14 @@
+
+.upcomming-release-calender-div{
+    height: 90px;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;     
+}
+
+.data-table{
+    padding: 4%;
+}
+

@@ -1,25 +1,24 @@
 import React from "react";
 import "./App.css";
-import Example from "./features/othermodules/MaterialTableCRUD";
-import ResponsiveApp from "./features/othermodules/responsive-web/ResponsiveApp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Contacts from "./components/contact/Contacts";
 import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import Announcement from "./components/announcement/Announcement";
+import GraphDemo from "./components/charts/GraphDemo";
+import SdpTools from "./components/portfolio/SdpTools";
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header></Header>
-        <Routes>
-          <Route path="/" element={<ResponsiveApp />}></Route>
-          <Route path="contact" element={<Contacts />} />
+      <Header/>
+        <Routes>      
+          <Route path="/home" element={<SdpTools />}></Route>  
+          <Route path="/announcement" element={<Announcement />}></Route>             
+          <Route path="/graph" element={<GraphDemo  />}></Route>             
         </Routes>
-        <Footer></Footer>
       </BrowserRouter>
     </div>
   );
 }
-
 export default App;

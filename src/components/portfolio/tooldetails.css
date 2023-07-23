@@ -1,0 +1,16 @@
+
+.tool-details{
+    padding: 0% 3% 0% 3%;
+}
+.tool-details p{    
+    color: black; 
+}
+
+#application-list{
+    color: whitesmoke;
+}
+
+.display-tools-item-par-page{
+    flex-wrap: wrap;
+    display: flex;
+}
