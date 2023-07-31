@@ -2,7 +2,7 @@ import "./announcement.css";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import React, { useCallback, useMemo, useState } from "react";
 import { MaterialReactTable } from "material-react-table";
-import { data as initialData } from "../../features/container/AnnouncementData";
+//import { data as initialData } from "../../features/container/AnnouncementData";
 import { Box, Button, DialogContentText } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { IconButton, Tooltip } from "@mui/material";
@@ -22,6 +22,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Announcement() {
   const isAdmin = true;
@@ -200,10 +202,10 @@ export default function Announcement() {
 
   return (
     <React.Fragment>
-      {/* <div className="upcomming-release-calender-div">
-        <CampaignIcon style={{ color: "#14661E", fontSize: "80px" }} />{" "}
+   <div className="upcomming-release-calender-div">
+        <CampaignIcon style={{ color: "#14661E", fontSize: "70px" }} />{" "}
         Announcement
-      </div> */}
+      </div> 
       <div className="data-table">
         <DataTable isAdmin={isAdmin} columns={columns} />
       </div>
@@ -213,27 +215,55 @@ export default function Announcement() {
 
 const DataTable = (props) => {
   const { isAdmin, columns } = props;
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(" ");
   const [createModalOpen, setCreateModalOpen] = useState(false);
+  
+  useEffect(() => {
+    getData();
+  }, []);
+
+ 
+
+  const deleteData =async (id)=>{  
+    debugger;
+    console.log(" id "+id); 
+    axios.delete("http://localhost:8080/api/deleteannouncement/"+id).then(res=>{
+      console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
+      setData(res.data);
+  }) 
+ }
+
+  const getData =async ()=>{   
+    axios.get("http://localhost:8080/api/getannouncement").then(res=>{
+      console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
+      setData(res.data);
+      })
+   }
+
+
+  const handleCreateNewRow = (values) => {
+    debugger;
+     axios.post("http://localhost:8080/api/createannouncement",values).then(res=>{
+      console.log(" data from spring boot rest call "+JSON.stringify(res.data)); 
+      setData(res.data);
+  }) 
+  };
 
   const handleDeleteRow = useCallback(
     (row) => {
-      data.splice(row.index, 1);
-      setData([...data]);
-      setDeleteModalOpen(false);
+      debugger;
+      console.log(" row original data from backend "+JSON.stringify(row.original.id)); 
+      deleteData(row.original.id);
+      setDeleteModalOpen(false); 
     },
-    [data]
+    [data],    
   );
-
+  
   const handleDeleteRowOnCancel = () => {
     debugger;
     setDeleteModalOpen(false);
   };
 
-  const handleCreateNewRow = (values) => {
-    data.push(values);
-    setData([...data]);
-  };
 
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   return (

@@ -40,7 +40,7 @@ function LabTabs() {
             <Tab label="Tools Tab"        style={style}  component={Link}  index={0} to={"/home"}/>
             <Tab label="Material Table" style={style}  component={Link}  index={1} to={"/announcement"}/>
             <Tab label="Graph Demo"       style={style}  component={Link}  index={2} to={"/graph"}/>
-            <Tab label="React Form"       style={style}  component={Link}  index={2} to={"/graph"}/>
+            <Tab label="React Form"       style={style}  component={Link}  index={2} to={"/formic"}/>
           </TabList>     
       </TabContext>
     </Box>
