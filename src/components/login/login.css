@@ -1,0 +1,17 @@
+.login-form{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    margin: 100px 0 0 400px;   
+    line-height: 40px;
+    border: 2px solid rgb(239, 233, 233);
+    width: 400px;
+    height: auto;
+    border-radius: 5px;    
+}
+
+.login{
+    text-align: right;
+    align-items: end;
+}

@@ -25,6 +25,7 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { useEffect } from "react";
 import axios from "axios";
 
+const baseUrl=process.env.REACT_APP_BASE_URL
 export default function Announcement() {
   const isAdmin = true;
   const columns = useMemo(
@@ -227,14 +228,14 @@ const DataTable = (props) => {
   const deleteData =async (id)=>{  
     debugger;
     console.log(" id "+id); 
-    axios.delete("http://localhost:8080/api/deleteannouncement/"+id).then(res=>{
+    axios.delete(baseUrl+"api/deleteannouncement/"+id).then(res=>{
       console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
       setData(res.data);
   }) 
  }
 
   const getData =async ()=>{   
-    axios.get("http://localhost:8080/api/getannouncement").then(res=>{
+    axios.get(baseUrl+"api/getannouncement").then(res=>{
       console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
       setData(res.data);
       })
@@ -243,7 +244,7 @@ const DataTable = (props) => {
 
   const handleCreateNewRow = (values) => {
     debugger;
-     axios.post("http://localhost:8080/api/createannouncement",values).then(res=>{
+     axios.post(baseUrl+"api/createannouncement",values).then(res=>{
       console.log(" data from spring boot rest call "+JSON.stringify(res.data)); 
       setData(res.data);
   }) 
