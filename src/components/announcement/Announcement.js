@@ -24,6 +24,7 @@ import Select from "@mui/material/Select";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const baseUrl=process.env.REACT_APP_BASE_URL
 export default function Announcement() {
@@ -218,36 +219,45 @@ const DataTable = (props) => {
   const { isAdmin, columns } = props;
   const [data, setData] = useState(" ");
   const [createModalOpen, setCreateModalOpen] = useState(false);
+
+  const jwtToken = useSelector((state) => state.counter.jwtToken);
+  const AuthStr ='Bearer '.concat(jwtToken); 
   
   useEffect(() => {
     getData();
   }, []);
 
- 
-
   const deleteData =async (id)=>{  
     debugger;
     console.log(" id "+id); 
-    axios.delete(baseUrl+"api/deleteannouncement/"+id).then(res=>{
+    axios.delete(baseUrl+"api/deleteannouncement/"+id,{ headers: { Authorization: AuthStr } }).then(res=>{
       console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
       setData(res.data);
   }) 
+  .catch((error) => {
+    console.log(error);
+  });
  }
 
   const getData =async ()=>{   
-    axios.get(baseUrl+"api/getannouncement").then(res=>{
-      console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
+    axios.get(baseUrl+"api/getannouncement",{ headers: { Authorization: AuthStr } }).then(res=>{
+      console.log(" data from spring boot rest call "+JSON.stringify(res.data)); 
       setData(res.data);
       })
+      .catch((error) => {
+        console.log(error);
+      });
    }
 
 
   const handleCreateNewRow = (values) => {
     debugger;
-     axios.post(baseUrl+"api/createannouncement",values).then(res=>{
+     axios.post(baseUrl+"api/createannouncement",values,{ headers: { Authorization: AuthStr } }).then(res=>{
       console.log(" data from spring boot rest call "+JSON.stringify(res.data)); 
       setData(res.data);
-  }) 
+  })  .catch((error) => {
+    console.log(error);
+  });
   };
 
   const handleDeleteRow = useCallback(

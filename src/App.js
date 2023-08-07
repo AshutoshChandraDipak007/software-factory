@@ -7,10 +7,12 @@ import GraphDemo from "./components/charts/GraphDemo";
 import SdpTools from "./components/portfolio/SdpTools";
 import ReactFormWithValidation from "./components/formic/ReactFormWithValidation";
 import Login from "./components/login/Login";
+import { useSelector } from 'react-redux';
 
 
 export default function App() {
-  const isLoggedIn=false; 
+  const isLoggedIn = useSelector((state) => state.counter.isLoggedIn);
+  
   return (
     <>
       {!isLoggedIn?<Login />:<AppRouting/>}
