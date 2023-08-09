@@ -8,3 +8,11 @@
 .utilities-row-up{
   height: 80px;
 }
+.utilities-row-down{
+  height: 48px;
+}
+.logout{
+  text-align: right;
+  margin-right: 47px;
+  padding: 0% 3% 0% 3%;
+}

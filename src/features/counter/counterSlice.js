@@ -12,22 +12,15 @@ export const counterSlice = createSlice({
   initialState,
 
   reducers: {
-    increment: (state) => {
-     state.value += 1;
-    },
-  
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    },
-
     userLoggedIn: (state) => {
       debugger
       state.isLoggedIn = true;
       console.log(state.isLoggedIn);
     },
     
-    useLoggedOut: (state) => {
+    userLoggedOut: (state) => {
       state.isLoggedIn = false;
+      state.jwtToken=null;
     },
 
     setJwtToken:(state, action)=>{
@@ -38,5 +31,5 @@ export const counterSlice = createSlice({
  
 });
 
-export const { increment, decrement, incrementByAmount,userLoggedIn,useLoggedOut,setJwtToken } = counterSlice.actions;
+export const {userLoggedIn,userLoggedOut,setJwtToken } = counterSlice.actions;
 export default counterSlice.reducer;

@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import "./login.css";
 import axios from "axios";
-import { setJwtToken, userLoggedIn} from "../../features/counter/counterSlice";
 import { useDispatch } from 'react-redux';
+import { setJwtToken, userLoggedIn} from "../../features/counter/authSlice";
 
-function Login() {
-  const dispatch = useDispatch()
+function Login() { 
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  const dispatch = useDispatch();
 
   const values = {
     email: name,
@@ -18,14 +18,14 @@ function Login() {
   };
 
   function handleSubmit() { 
-    if(name!==null && password!==null && name!==undefined && password!==undefined && name!=="" &&password!==""){
+    if(name!==null && password!==null && name!==undefined && password!==undefined && name!=="" && password!==""){
     const endUrl = baseUrl + "login";
-    console.log("  endUrl " + endUrl);
+    //console.log("  endUrl " + endUrl);
     axios.post(endUrl, values).then((res) => {
       setToken(res.data);   
       if(res.data.jwtToken!==null){
-        console.log(" res.data.jwtToken "+res.data.jwtToken);
         dispatch(setJwtToken(res.data.jwtToken));
+        sessionStorage.setItem("jwtToken",res.data.jwtToken);
         dispatch(userLoggedIn());
       }
     });

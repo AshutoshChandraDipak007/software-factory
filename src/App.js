@@ -11,8 +11,7 @@ import { useSelector } from 'react-redux';
 
 
 export default function App() {
-  const isLoggedIn = useSelector((state) => state.counter.isLoggedIn);
-  
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);  
   return (
     <>
       {!isLoggedIn?<Login />:<AppRouting/>}
@@ -24,7 +23,8 @@ export default function App() {
     <div>
        <BrowserRouter>
       <Header />
-        <Routes>       
+        <Routes>    
+        <Route path="" element={<SdpTools />}></Route>     
           <Route path="/home" element={<SdpTools />}></Route>  
           <Route path="/announcement" element={<Announcement />}></Route>             
           <Route path="/graph" element={<GraphDemo  />}></Route>             

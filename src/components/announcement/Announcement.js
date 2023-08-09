@@ -220,18 +220,16 @@ const DataTable = (props) => {
   const [data, setData] = useState(" ");
   const [createModalOpen, setCreateModalOpen] = useState(false);
 
-  const jwtToken = useSelector((state) => state.counter.jwtToken);
-  const AuthStr ='Bearer '.concat(jwtToken); 
+  const jwtToken = useSelector((state) => state.auth.jwtToken);
+  //const AuthStr ='Bearer '.concat(jwtToken); 
+   const AuthStr ='Bearer '.concat(sessionStorage.getItem("jwtToken")); 
   
   useEffect(() => {
     getData();
   }, []);
 
   const deleteData =async (id)=>{  
-    debugger;
-    console.log(" id "+id); 
-    axios.delete(baseUrl+"api/deleteannouncement/"+id,{ headers: { Authorization: AuthStr } }).then(res=>{
-      console.log(" data from springboot rest call "+JSON.stringify(res.data)); 
+     axios.delete(baseUrl+"api/deleteannouncement/"+id,{ headers: { Authorization: AuthStr } }).then(res=>{
       setData(res.data);
   }) 
   .catch((error) => {
@@ -240,8 +238,7 @@ const DataTable = (props) => {
  }
 
   const getData =async ()=>{   
-    axios.get(baseUrl+"api/getannouncement",{ headers: { Authorization: AuthStr } }).then(res=>{
-      console.log(" data from spring boot rest call "+JSON.stringify(res.data)); 
+    axios.get(baseUrl+"api/getannouncement",{ headers: { Authorization: AuthStr } }).then(res=>{      
       setData(res.data);
       })
       .catch((error) => {
@@ -250,10 +247,8 @@ const DataTable = (props) => {
    }
 
 
-  const handleCreateNewRow = (values) => {
-    debugger;
-     axios.post(baseUrl+"api/createannouncement",values,{ headers: { Authorization: AuthStr } }).then(res=>{
-      console.log(" data from spring boot rest call "+JSON.stringify(res.data)); 
+  const handleCreateNewRow = (values) => {   
+      axios.post(baseUrl+"api/createannouncement",values,{ headers: { Authorization: AuthStr } }).then(res=>{
       setData(res.data);
   })  .catch((error) => {
     console.log(error);
@@ -261,9 +256,7 @@ const DataTable = (props) => {
   };
 
   const handleDeleteRow = useCallback(
-    (row) => {
-      debugger;
-      console.log(" row original data from backend "+JSON.stringify(row.original.id)); 
+    (row) => {     
       deleteData(row.original.id);
       setDeleteModalOpen(false); 
     },
@@ -271,7 +264,6 @@ const DataTable = (props) => {
   );
   
   const handleDeleteRowOnCancel = () => {
-    debugger;
     setDeleteModalOpen(false);
   };
 
@@ -500,7 +492,6 @@ export const CreateAnnouncementDialog = ({
                   setValues({ ...values, [e.target.name]: e.target.value })
                 }
               >
-                <MenuItem value="STAGE">STAGE</MenuItem>
                 <MenuItem value="INT">INT</MenuItem>
                 <MenuItem value="PROD">PROD</MenuItem>
               </Select>

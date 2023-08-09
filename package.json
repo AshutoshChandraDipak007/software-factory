@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.14.1",
     "@mui/lab": "^5.0.0-alpha.136",
@@ -19,6 +20,7 @@
     "faker": "^6.6.6",
     "formik": "^2.4.2",
     "material-react-table": "^1.8.4",
+    "material-ui-popup-state": "^5.0.9",
     "react": "^18.2.0",
     "react-chartjs-2": "^2.11.2",
     "react-dom": "^18.2.0",
