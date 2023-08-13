@@ -1,32 +1,30 @@
-.item-name{
-    width: 140px;
-    min-height: 52px;
-    font-size: 13px;
+.item-name{   
+    font-size: 14px;
     text-align: center;
     color: #F4F4F4;
     text-transform: none;
-    margin-block-start: initial;
     cursor: pointer;
-    background-color: #F4F4F4;
-    
-    padding-top: 5px;
+    background-color: #F4F4F4;   
+    padding: 10px 30px; 
+    margin: 13px;
+    width: 80px;
+    max-height: 55px;
+    justify-content: center;
 }
 
 .item-name img{
- width: 30px;
- height: 30px;
- display: inline-block;
+ width: 25px;
+ height: 25px;
 }
 
-.item-name p{
-   padding: 5px;
-}
 
 .on-hover-display-details{
-  padding: 10px;
+  padding: 20px;
+  background-color: #4F4F4F;
+  color: #F4F4F4;
 }
 
 
 .on-hover-display-details p{
-    margin-top: 0.1vh;
+    padding: 20px 10 20px 10px;
  }

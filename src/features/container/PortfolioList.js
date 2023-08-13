@@ -44,8 +44,8 @@ export const portFolioList = [
   },
   {
     id: 9,
-    toolName: "Bamboo",
-    title: "Bamboo title",
+    toolName: "Jenkins",
+    title: "Jenkins title",
     url: "http://jira.com",
     description: "Jira is us to manage the project ticket.",
   },

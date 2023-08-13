@@ -3,7 +3,8 @@ import { useState } from "react";
 import "./login.css";
 import axios from "axios";
 import { useDispatch } from 'react-redux';
-import { setJwtToken, userLoggedIn} from "../../features/counter/authSlice";
+import { setJwtToken,userRole, userLoggedIn} from "../../features/counter/authSlice";
+import jwtDecode from "jwt-decode";
 
 function Login() { 
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -22,11 +23,17 @@ function Login() {
     const endUrl = baseUrl + "login";
     //console.log("  endUrl " + endUrl);
     axios.post(endUrl, values).then((res) => {
+      debugger;
       setToken(res.data);   
       if(res.data.jwtToken!==null){
         dispatch(setJwtToken(res.data.jwtToken));
         sessionStorage.setItem("jwtToken",res.data.jwtToken);
+        const jwt_decode=jwtDecode(res.data.jwtToken);
         dispatch(userLoggedIn());
+        if(jwt_decode.sub==="Admin"){
+          dispatch(userRole());
+        }
+        console.log("  jwt_decode sub "+JSON.stringify(jwt_decode))
       }
     });
   }  

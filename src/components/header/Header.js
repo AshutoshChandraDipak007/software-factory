@@ -58,6 +58,7 @@ function LabTabs() {
             <Tab label="Material Table"   style={style}  component={Link}  index={1} to={"/announcement"}/>
             <Tab label="Graph Demo"       style={style}  component={Link}  index={2} to={"/graph"}/>
             <Tab label="React Form"       style={style}  component={Link}  index={2} to={"/formic"}/>
+            <Tab label="Flex Demo"       style={style}  component={Link}  index={2} to={"/flex"}/>
           </TabList>     
       </TabContext>
     </Box>

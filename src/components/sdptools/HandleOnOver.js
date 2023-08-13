@@ -3,8 +3,8 @@ import Popover from "@mui/material/Popover";
 import { Button } from "@mui/material";
 import "./mouseover.css";
 import JiraLog from "../../images/jira-logo-clipart-2.png";
-import ConfluenceLogo from "../../images/confluence-logo-4.png";
-import JenkinsLogo from "../../images/Jenkins-Main-Image.png";
+import ConfluenceLogo from "../../images/confluence-logo-4.jpg";
+import JenkinsLogo from "../../images/Jenkins-Main-Image.jpg";
 
 
 export default function MouseOverPopover(props) {  
@@ -33,6 +33,7 @@ export default function MouseOverPopover(props) {
   ["Jira",JiraLog], 
   ["Confluence",ConfluenceLogo],
   ["Bamboo",JenkinsLogo],
+  ["Jenkins",JenkinsLogo],
   ["Bitbucket",ConfluenceLogo],
  ]);
 
@@ -44,9 +45,9 @@ export default function MouseOverPopover(props) {
         onMouseLeave={handlePopoverClose}
       >
         <div className="item-name">                           
-            <img src={getlogo.get(toolName)} alt="toollogo"/><br/>
+            <img src={getlogo.get(toolName)} alt="toollogo"/>
             <p>  
-            {toolName} <br/>                      
+            {toolName}                 
           </p>
         </div>
       </div>

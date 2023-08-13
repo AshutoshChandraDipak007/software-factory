@@ -28,7 +28,7 @@ import { useSelector } from "react-redux";
 
 const baseUrl=process.env.REACT_APP_BASE_URL
 export default function Announcement() {
-  const isAdmin = true;
+  const isAdmin = useSelector((state) => state.auth.isAdmin); ;
   const columns = useMemo(
     () => [
       {
