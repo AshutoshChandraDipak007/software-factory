@@ -15,11 +15,11 @@ export default function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);  
   return (
     <>
-      {!isLoggedIn?<Login />:<AppRouting/>}
+      {!isLoggedIn?<PublicRoute />:<PrivateRoute />}
     </>   
   );
 }
- function AppRouting() {
+ function PrivateRoute() {
   return (
     <div>
        <BrowserRouter>
@@ -36,6 +36,14 @@ export default function App() {
     </div>
   )
 }
+function PublicRoute() {
+  return (
+    <div>
+       <Login />
+    </div>
+  )
+}
+
 
 
 

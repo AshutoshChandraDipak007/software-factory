@@ -28,3 +28,7 @@
 .on-hover-display-details p{
     padding: 20px 10 20px 10px;
  }
+
+ a{
+  text-decoration: none;
+ }

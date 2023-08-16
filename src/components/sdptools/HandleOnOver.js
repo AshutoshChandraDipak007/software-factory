@@ -2,13 +2,12 @@ import * as React from "react";
 import Popover from "@mui/material/Popover";
 import { Button } from "@mui/material";
 import "./mouseover.css";
-import JiraLog from "../../images/jira-logo-clipart-2.png";
+/* import JiraLog from "../../images/jira-logo-clipart-2.png";
 import ConfluenceLogo from "../../images/confluence-logo-4.jpg";
-import JenkinsLogo from "../../images/Jenkins-Main-Image.jpg";
-
+import JenkinsLogo from "../../images/Jenkins-Main-Image.jpg"; */
 
 export default function MouseOverPopover(props) {  
-  const { toolName, title, url, description } = props.item;
+  const { toolName, title, url, description,logo,icon } = props.item;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -29,13 +28,13 @@ export default function MouseOverPopover(props) {
  }
  getLogo[toolname] */
 
- const getlogo=new Map([    //map in js
+ /* const getlogo=new Map([    //map in js
   ["Jira",JiraLog], 
   ["Confluence",ConfluenceLogo],
   ["Bamboo",JenkinsLogo],
   ["Jenkins",JenkinsLogo],
   ["Bitbucket",ConfluenceLogo],
- ]);
+ ]); */
 
 
   return (
@@ -44,11 +43,14 @@ export default function MouseOverPopover(props) {
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
       >
-        <div className="item-name">                           
-            <img src={getlogo.get(toolName)} alt="toollogo"/>
+        <div className="item-name"> 
+        <a href={url} target="_blank">                       
+            {/* <img src={getlogo.get(toolName)} alt="toollogo"/> */}
+            <img src={logo} alt="toollogo"/>
             <p>  
             {toolName}                 
           </p>
+          </a>   
         </div>
       </div>
       <Popover
@@ -68,9 +70,9 @@ export default function MouseOverPopover(props) {
         }}
       >
     <div className="on-hover-display-details">
-       <b>{title} </b><br/>
+       <b>{title} &nbsp; {icon} </b><br/>
           <p>
-            {description}        
+            {description}   
           </p>
         </div>
       </Popover>

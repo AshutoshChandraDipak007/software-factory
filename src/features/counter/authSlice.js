@@ -10,10 +10,8 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-
   reducers: {   
     userLoggedIn: (state) => {
-       // debugger
         state.isLoggedIn = true;
         console.log(state.isLoggedIn);
       },
@@ -28,7 +26,6 @@ export const authSlice = createSlice({
       },
   
       setJwtToken:(state, action)=>{
-        //console.log(" state.jwtToken from reducer "+action.payload);
         state.jwtToken=action.payload;
       }  
   },
