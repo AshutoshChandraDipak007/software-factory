@@ -25,6 +25,9 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import {GET,CREATE,DELETE} from "../../services/Service";
+
+
 
 const baseUrl=process.env.REACT_APP_BASE_URL
 export default function Announcement() {
@@ -219,42 +222,27 @@ const DataTable = (props) => {
   const { isAdmin, columns } = props;
   const [data, setData] = useState(" ");
   const [createModalOpen, setCreateModalOpen] = useState(false);
-
-  const jwtToken = useSelector((state) => state.auth.jwtToken);
-  //const AuthStr ='Bearer '.concat(jwtToken); 
-   const AuthStr ='Bearer '.concat(sessionStorage.getItem("jwtToken")); 
-  
+ 
   useEffect(() => {
-    getData();
+    getDataFromComp();
   }, []);
 
-  const deleteData =async (id)=>{  
-     axios.delete(baseUrl+"api/deleteannouncement/"+id,{ headers: { Authorization: AuthStr } }).then(res=>{
-      setData(res.data);
-  }) 
-  .catch((error) => {
-    console.log(error);
-  });
+  const deleteData =async (id)=>{
+  const data=await DELETE(`api/deleteannouncement/${id}`);
+  setData(data.data);   
  }
 
-  const getData =async ()=>{   
-    axios.get(baseUrl+"api/getannouncement",{ headers: { Authorization: AuthStr } }).then(res=>{      
-      setData(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const getDataFromComp =async ()=>{      
+     const data=await GET(`api/getannouncement`);
+     setData(data.data);    
    }
 
+  const handleCreateNewRow = async (values) => {   
+    const data=await CREATE(`api/createannouncement`,values);
+    setData(data.data);  
+   };
 
-  const handleCreateNewRow = (values) => {   
-      axios.post(baseUrl+"api/createannouncement",values,{ headers: { Authorization: AuthStr } }).then(res=>{
-      setData(res.data);
-  })  .catch((error) => {
-    console.log(error);
-  });
-  };
-
+   
   const handleDeleteRow = useCallback(
     (row) => {     
       deleteData(row.original.id);

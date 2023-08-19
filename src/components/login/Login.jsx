@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./login.css";
-import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { setJwtToken,userRole, userLoggedIn} from "../../features/counter/authSlice";
 import jwtDecode from "jwt-decode";
+import {CREATE} from "../../services/Service";
 
 function Login() { 
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -18,11 +18,27 @@ function Login() {
     password: password,
   };
 
-  function handleSubmit() { 
+  async function handleSubmit() { 
     if(name!==null && password!==null && name!==undefined && password!==undefined && name!=="" && password!==""){
-    const endUrl = baseUrl + "login";
+   
+    const res=await CREATE(`login`,values);
+    setToken(res.data);   
+    if(res.data.jwtToken!==null){
+      sessionStorage.setItem("jwtToken",res.data.jwtToken);
+      const jwt_decode=jwtDecode(res.data.jwtToken);
+
+      if(jwt_decode.sub==="Admin"){
+        dispatch(userRole());
+      }
+
+      dispatch(userLoggedIn());
+      console.log("  jwt_decode sub "+JSON.stringify(jwt_decode))
+    }
+
+
+   // setData(data.data); 
     //console.log("  endUrl " + endUrl);
-    axios.post(endUrl, values).then((res) => {
+   /*  axios.post(endUrl, values).then((res) => {
       debugger;
       setToken(res.data);   
       if(res.data.jwtToken!==null){
@@ -35,8 +51,9 @@ function Login() {
         }
         console.log("  jwt_decode sub "+JSON.stringify(jwt_decode))
       }
-    });
-  }  
+    }); */
+  }
+
   }
 
   return (

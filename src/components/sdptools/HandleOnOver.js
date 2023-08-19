@@ -44,7 +44,7 @@ export default function MouseOverPopover(props) {
         onMouseLeave={handlePopoverClose}
       >
         <div className="item-name"> 
-        <a href={url} target="_blank">                       
+        <a href={url} target="_blank" rel="noreferrer">                       
             {/* <img src={getlogo.get(toolName)} alt="toollogo"/> */}
             <img src={logo} alt="toollogo"/>
             <p>  

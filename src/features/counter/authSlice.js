@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
   jwtToken:"",
-  isLoggedIn:true,
+  isLoggedIn:false,
   isAdmin:false,
   userList:[],
 };
@@ -23,6 +23,7 @@ export const authSlice = createSlice({
       userLoggedOut: (state) => {
         state.isLoggedIn = false;
         state.jwtToken=null;
+        state.isAdmin=false;
       },
   
       setJwtToken:(state, action)=>{
