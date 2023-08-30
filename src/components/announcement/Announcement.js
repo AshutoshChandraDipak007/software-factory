@@ -2,7 +2,6 @@ import "./announcement.css";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import React, { useCallback, useMemo, useState } from "react";
 import { MaterialReactTable } from "material-react-table";
-//import { data as initialData } from "../../features/container/AnnouncementData";
 import { Box, Button, DialogContentText } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { IconButton, Tooltip } from "@mui/material";
@@ -23,13 +22,11 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { useEffect } from "react";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import {GET,CREATE,DELETE} from "../../services/Service";
 
 
 
-const baseUrl=process.env.REACT_APP_BASE_URL
 export default function Announcement() {
   const isAdmin = useSelector((state) => state.auth.isAdmin); ;
   const columns = useMemo(
@@ -242,7 +239,7 @@ const DataTable = (props) => {
     setData(data.data);  
    };
 
-   
+
   const handleDeleteRow = useCallback(
     (row) => {     
       deleteData(row.original.id);
@@ -361,6 +358,7 @@ const DataTable = (props) => {
         variant: "standard",
         sx: { backgroundColor: "white", m: "0.5rem 0", width: "100%" },
       }}
+
       muiTableBodyProps={{
         sx: (theme) => ({
           "& tr:nth-of-type(odd)": {
@@ -368,6 +366,7 @@ const DataTable = (props) => {
           },
         }),
       }}
+      
       displayColumnDefOptions={{
         "mrt-row-actions": {
           header: "Edit Row", //change header text
@@ -527,7 +526,6 @@ export const DeleteAnnouncementDialog = ({ open, onClickOk, onCancel }) => {
   return (
     <form>
       <Dialog open={open}>
-        {" "}
         <DialogTitle textAlign="left">Confirm deletion</DialogTitle>
         <DialogContent>
           <Stack

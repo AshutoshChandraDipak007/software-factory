@@ -56,9 +56,11 @@ function LabTabs() {
           <TabList onChange={handleChange} aria-label="lab API tabs example" TabIndicatorProps={{style:{background:"#37AC45"}}}>
             <Tab label="Tools Tab"        style={style}  component={Link}  index={0} to={"/home"}/>
             <Tab label="Material Table"   style={style}  component={Link}  index={1} to={"/announcement"}/>
+            <Tab label="Table"            style={style}  component={Link}  index={2} to={"/table"}/>
             <Tab label="Graph Demo"       style={style}  component={Link}  index={2} to={"/graph"}/>
             <Tab label="React Form"       style={style}  component={Link}  index={2} to={"/formic"}/>
-            <Tab label="Flex Demo"       style={style}  component={Link}  index={2} to={"/flex"}/>
+            <Tab label="Flex Demo"        style={style}  component={Link}  index={2} to={"/flex"}/>
+           
           </TabList>     
       </TabContext>
     </Box>

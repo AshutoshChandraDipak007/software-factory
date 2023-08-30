@@ -9,6 +9,8 @@ import ReactFormWithValidation from "./components/formic/ReactFormWithValidation
 import Login from "./components/login/Login";
 import { useSelector } from 'react-redux';
 import FlexDemo from "./components/flex/FlexDemo";
+import TablePaginationActions from "./components/react-mui-table/CustomMUITable";
+import CustomPaginationActionsTable from "./components/react-mui-table/CustomMUITable";
 
 
 export default function App() {
@@ -26,6 +28,8 @@ export default function App() {
       <Header />
         <Routes>    
           <Route path="" element={<SdpTools />}></Route>     
+          <Route path="/table" element={<CustomPaginationActionsTable />}></Route>     
+          <Route path="/table/:name" element={<ReactFormWithValidation />}></Route>     
           <Route path="/home" element={<SdpTools />}></Route>  
           <Route path="/flex" element={<FlexDemo />}></Route>  
           <Route path="/announcement" element={<Announcement />}></Route>             

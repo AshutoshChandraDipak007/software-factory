@@ -19,8 +19,7 @@ function Login() {
   };
 
   async function handleSubmit() { 
-    if(name!==null && password!==null && name!==undefined && password!==undefined && name!=="" && password!==""){
-   
+    if(name!==null && password!==null && name!==undefined && password!==undefined && name!=="" && password!==""){   
     const res=await CREATE(`login`,values);
     setToken(res.data);   
     if(res.data.jwtToken!==null){
@@ -34,24 +33,6 @@ function Login() {
       dispatch(userLoggedIn());
       console.log("  jwt_decode sub "+JSON.stringify(jwt_decode))
     }
-
-
-   // setData(data.data); 
-    //console.log("  endUrl " + endUrl);
-   /*  axios.post(endUrl, values).then((res) => {
-      debugger;
-      setToken(res.data);   
-      if(res.data.jwtToken!==null){
-        dispatch(setJwtToken(res.data.jwtToken));
-        sessionStorage.setItem("jwtToken",res.data.jwtToken);
-        const jwt_decode=jwtDecode(res.data.jwtToken);
-        dispatch(userLoggedIn());
-        if(jwt_decode.sub==="Admin"){
-          dispatch(userRole());
-        }
-        console.log("  jwt_decode sub "+JSON.stringify(jwt_decode))
-      }
-    }); */
   }
 
   }
